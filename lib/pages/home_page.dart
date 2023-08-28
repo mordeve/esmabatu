@@ -40,7 +40,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text(appTitle),
+          title: const Text(appName),
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(50),
             child: Container(
