@@ -1,0 +1,8 @@
+
+## dart gitignore
+
+*.iml
+
+*.DS_Store
+
+*.dart_tool/
