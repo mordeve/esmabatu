@@ -1,6 +1,4 @@
 
-## dart gitignore
-
 *.iml
 
 *.DS_Store
@@ -12,3 +10,7 @@
 *.android/
 
 *.ios/
+*.flutter-plugins-dependencies
+*.flutter-plugins
+*.dart_tool/
+*.dart_tool

@@ -48,7 +48,7 @@ class HomePageState extends State<HomePage> {
               alignment: Alignment.center,
               child: Text(
                 _time,
-                style: const TextStyle(fontSize: 24, color: Colors.white),
+                style: const TextStyle(fontSize: 20, color: Colors.white),
               ),
             ),
           )),
