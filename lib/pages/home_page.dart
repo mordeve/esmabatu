@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:esmabatu/utils/constants.dart';
+import 'package:esmabatu/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -39,25 +40,53 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: const Text(appName),
-          bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(50),
-            child: Container(
-              padding: const EdgeInsets.all(12.0),
-              alignment: Alignment.center,
-              child: Text(
-                _time,
-                style: const TextStyle(fontSize: 20, color: Colors.white),
+        body: Column(
+      children: [
+        CustomAppBar(timee: _time),
+        const SizedBox(height: 50),
+        Wrap(
+          spacing: 30,
+          runSpacing: 30,
+          children: [
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueGrey[400],
+                textStyle: GoogleFonts.pacifico(fontSize: 20),
+                minimumSize: const Size(200, 50),
               ),
+              child: const Text("Düğün"),
             ),
-          )),
-      body: const Center(
-        child: Text(
-          "Seni Seviyorum...",
-          style: TextStyle(fontSize: 24),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueGrey[400],
+                textStyle: GoogleFonts.pacifico(fontSize: 20),
+                minimumSize: const Size(200, 50),
+              ),
+              child: const Text("Nikâh"),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueGrey[400],
+                textStyle: GoogleFonts.pacifico(fontSize: 20),
+                minimumSize: const Size(200, 50),
+              ),
+              child: const Text("Fotoğraf Gönder"),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueGrey[400],
+                textStyle: GoogleFonts.pacifico(fontSize: 20),
+                minimumSize: const Size(200, 50),
+              ),
+              child: const Text("İletişim"),
+            ),
+          ],
         ),
-      ),
-    );
+      ],
+    ));
   }
 }

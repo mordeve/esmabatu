@@ -1,2 +1,2 @@
-const appName = "🤍💜 Esma Batuhan Wedding 💜🤍";
+const appName = "Esma Batuhan Wedding";
 const appTitle = "Esma 🤍 Batuhan";

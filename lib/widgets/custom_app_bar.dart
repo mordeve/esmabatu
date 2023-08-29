@@ -35,10 +35,25 @@ class CustomAppBar extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(12.0),
               alignment: Alignment.center,
-              child: Text(
-                appName,
-                style: GoogleFonts.pacifico(fontSize: 24),
-                textAlign: TextAlign.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.favorite_border_sharp,
+                    color: Colors.purple.shade400,
+                  ),
+                  const SizedBox(width: 6.0),
+                  Text(
+                    appName,
+                    style: GoogleFonts.pacifico(fontSize: 24),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(width: 6.0),
+                  Icon(
+                    Icons.favorite_border_sharp,
+                    color: Colors.purple.shade400,
+                  ),
+                ],
               ),
             ),
             Container(
