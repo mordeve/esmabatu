@@ -12,9 +12,9 @@ class CustomAppBar extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             color: Colors.grey[300],
-            borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(200),
-              bottomRight: Radius.circular(200),
+            borderRadius: BorderRadius.vertical(
+              bottom:
+                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
             ),
             boxShadow: const [
               BoxShadow(
@@ -57,11 +57,11 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.only(bottom: 20.0, right: 16, left: 16),
               alignment: Alignment.center,
               child: Text(
                 timee,
-                style: GoogleFonts.pacifico(fontSize: 20),
+                style: GoogleFonts.pacifico(fontSize: 20.0),
               ),
             ),
           ],
