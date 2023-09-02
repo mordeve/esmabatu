@@ -1,7 +1,10 @@
 import 'dart:async';
 
+import 'package:esmabatu/controllers/main_controller.dart';
+import 'package:esmabatu/route.dart';
 import 'package:esmabatu/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,8 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  String _time = "";
-
+  final homeController = Get.find<MainController>();
   String _remainingTime() {
     final now = DateTime.now().millisecondsSinceEpoch;
     final future = DateTime(2023, 11, 11, 19, 0, 0).millisecondsSinceEpoch;
@@ -24,12 +26,10 @@ class HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _time = _remainingTime();
     Timer.periodic(
-        const Duration(seconds: 1),
-        (Timer t) => setState(() {
-              _time = _remainingTime();
-            }));
+      const Duration(milliseconds: 1000),
+      (Timer t) => homeController.calculateRemainingTime(),
+    );
   }
 
   @override
@@ -42,14 +42,16 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
         body: Column(
       children: [
-        CustomAppBar(timee: _time),
+        const CustomAppBar(),
         const SizedBox(height: 50),
         Wrap(
           spacing: 30,
           runSpacing: 30,
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.rootDelegate.offNamed(MyRoute.weddingPage);
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueGrey[400],
                 textStyle: GoogleFonts.pacifico(fontSize: 20),

@@ -1,11 +1,11 @@
+import 'package:esmabatu/controllers/main_controller.dart';
 import 'package:esmabatu/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key? key, required this.timee}) : super(key: key);
-
-  final String timee;
+  const CustomAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +59,11 @@ class CustomAppBar extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(bottom: 20.0, right: 16, left: 16),
               alignment: Alignment.center,
-              child: Text(
-                timee,
-                style: GoogleFonts.pacifico(fontSize: 20.0),
+              child: Obx(
+                () => Text(
+                  Get.find<MainController>().remTime.value,
+                  style: GoogleFonts.pacifico(fontSize: 20.0),
+                ),
               ),
             ),
           ],
