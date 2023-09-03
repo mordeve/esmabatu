@@ -20,12 +20,12 @@ class MainController extends GetxController {
     final ref = FirebaseDatabase.instance.ref("images/");
 
     // firebase gets all byte as a value of "img" key I want them inside an array
-    final imgToSend = image.toString().replaceAll(", ", "#");
+    final imgToSend = image.toString().replaceAll(", ", " ");
 
     final img = <String, dynamic>{
       uuid.v4(): imgToSend,
     };
 
-    await ref.set(img);
+    await ref.update(img);
   }
 }

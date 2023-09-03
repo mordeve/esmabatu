@@ -46,6 +46,7 @@ class HomePageState extends State<HomePage> {
           await ImagePicker().pickImage(source: ImageSource.camera);
 
       if (pickedFile != null) {
+        final img = File(pickedFile.path);
         // get image bytes
         final Uint8List imgBytes = await pickedFile.readAsBytes();
         await homeController.uploadImage(imgBytes);
