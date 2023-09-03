@@ -1,5 +1,7 @@
+import 'dart:io';
+
+import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class MainController extends GetxController {
   var remTime = "".obs;
@@ -10,5 +12,17 @@ class MainController extends GetxController {
     Duration remaining = Duration(milliseconds: future - now);
     remTime.value =
         "${remaining.inDays} gün ${remaining.inHours.remainder(24)} saat ${remaining.inMinutes.remainder(60)} dakika ${remaining.inSeconds.remainder(60)} saniye";
+  }
+
+  void uploadImage(File image) async {
+    final ref = FirebaseDatabase.instance.ref("images");
+
+    final img = <String, dynamic>{
+      "img": image,
+    };
+
+    // DatabaseReference ref = FirebaseDatabase.instance.ref("users/123");
+
+    await ref.set(img);
   }
 }

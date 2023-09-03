@@ -93,7 +93,7 @@ class DugunPage extends StatelessWidget {
                     ),
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.9,
-                      height: 420,
+                      height: 470,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16.0),
                       ),

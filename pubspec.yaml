@@ -19,6 +19,9 @@ dependencies:
   get: ^4.6.5
   url_launcher: ^6.0.14
   image_picker: ^1.0.4
+  camera: ^0.10.5+4
+  firebase_core: ^2.15.1
+  firebase_database: ^10.2.5
 
 
 dev_dependencies:

@@ -44,6 +44,7 @@ class HomePageState extends State<HomePage> {
 
     if (pickedFile != null) {
       var img = File(pickedFile.path);
+      homeController.uploadImage(img);
     }
   }
 

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 abstract class MyRoute {
   static const String main = "/";
   static const String weddingPage = "/dugun";
+  static const String photoPage = "/photo";
 }
 
 abstract class GetRoute {
