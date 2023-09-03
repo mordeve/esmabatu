@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:esmabatu/controllers/main_controller.dart';
 import 'package:esmabatu/route.dart';
@@ -6,6 +7,7 @@ import 'package:esmabatu/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,12 +18,6 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   final homeController = Get.find<MainController>();
-  String _remainingTime() {
-    final now = DateTime.now().millisecondsSinceEpoch;
-    final future = DateTime(2023, 11, 11, 19, 0, 0).millisecondsSinceEpoch;
-    Duration remaining = Duration(milliseconds: future - now);
-    return "${remaining.inDays} gün ${remaining.inHours.remainder(24)} saat ${remaining.inMinutes.remainder(60)} dakika ${remaining.inSeconds.remainder(60)} saniye";
-  }
 
   late Timer timer;
 
@@ -37,6 +33,18 @@ class HomePageState extends State<HomePage> {
   @override
   void dispose() {
     super.dispose();
+    timer.cancel();
+  }
+
+  final ImagePicker picker = ImagePicker();
+
+  Future<void> _takePhoto() async {
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.camera);
+
+    if (pickedFile != null) {
+      var img = File(pickedFile.path);
+    }
   }
 
   @override
@@ -71,7 +79,9 @@ class HomePageState extends State<HomePage> {
               child: const Text("Nikâh"),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                _takePhoto();
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueGrey[400],
                 textStyle: GoogleFonts.pacifico(fontSize: 20),
