@@ -58,6 +58,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '144372426032',
     projectId: 'emsabatu',
     authDomain: 'emsabatu.firebaseapp.com',
+    databaseURL: 'https://emsabatu-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'emsabatu.appspot.com',
   );
 }
