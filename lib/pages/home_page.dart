@@ -23,10 +23,12 @@ class HomePageState extends State<HomePage> {
     return "${remaining.inDays} gün ${remaining.inHours.remainder(24)} saat ${remaining.inMinutes.remainder(60)} dakika ${remaining.inSeconds.remainder(60)} saniye";
   }
 
+  late Timer timer;
+
   @override
   void initState() {
     super.initState();
-    Timer.periodic(
+    timer = Timer.periodic(
       const Duration(milliseconds: 1000),
       (Timer t) => homeController.calculateRemainingTime(),
     );
