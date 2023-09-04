@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:firebase_database/firebase_database.dart';
@@ -7,6 +8,7 @@ import 'package:uuid/uuid.dart';
 class MainController extends GetxController {
   var remTime = "".obs;
   var uuid = const Uuid();
+  Base64Codec base64 = const Base64Codec();
 
   void calculateRemainingTime() {
     final now = DateTime.now().millisecondsSinceEpoch;
@@ -19,11 +21,8 @@ class MainController extends GetxController {
   Future<void> uploadImage(Uint8List image) async {
     final ref = FirebaseDatabase.instance.ref("images/");
 
-    // firebase gets all byte as a value of "img" key I want them inside an array
-    final imgToSend = image.toString().replaceAll(", ", " ");
-
     final img = <String, dynamic>{
-      uuid.v4(): imgToSend,
+      uuid.v4(): base64.encode(image),
     };
 
     await ref.update(img);

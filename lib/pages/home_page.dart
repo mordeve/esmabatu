@@ -46,7 +46,7 @@ class HomePageState extends State<HomePage> {
           await ImagePicker().pickImage(source: ImageSource.camera);
 
       if (pickedFile != null) {
-        final img = File(pickedFile.path);
+        // final img = File(pickedFile.path);
         // get image bytes
         final Uint8List imgBytes = await pickedFile.readAsBytes();
         await homeController.uploadImage(imgBytes);
@@ -88,14 +88,20 @@ class HomePageState extends State<HomePage> {
               child: const Text("Nikâh"),
             ),
             ElevatedButton(
-              onPressed: () {
-                _takePhoto();
+              onPressed: () async {
+                await _takePhoto();
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text("Fotoğraf yüklendi"),
-                    duration: Duration(seconds: 4),
+                    backgroundColor: Colors.blueGrey,
+                    content: Text(
+                      "Teşekkür ederiz.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                    duration: Duration(seconds: 3),
                   ),
                 );
+                Get.rootDelegate.offNamed(MyRoute.main);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueGrey[400],
