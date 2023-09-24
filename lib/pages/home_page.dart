@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:esmabatu/controllers/main_controller.dart';
 import 'package:esmabatu/route.dart';
 import 'package:esmabatu/widgets/custom_app_bar.dart';
+import 'package:esmabatu/widgets/dates_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,12 +43,10 @@ class HomePageState extends State<HomePage> {
 
   Future<void> _takePhoto() async {
     try {
-      final pickedFile =
-          await ImagePicker().pickImage(source: ImageSource.camera);
+      final pickedFile = await ImagePicker()
+          .pickImage(source: ImageSource.camera, imageQuality: 25);
 
       if (pickedFile != null) {
-        // final img = File(pickedFile.path);
-        // get image bytes
         final Uint8List imgBytes = await pickedFile.readAsBytes();
         await homeController.uploadImage(imgBytes);
       }
@@ -59,69 +58,79 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        const CustomAppBar(),
-        const SizedBox(height: 50),
-        Wrap(
-          spacing: 30,
-          runSpacing: 30,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Get.rootDelegate.offNamed(MyRoute.weddingPage);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey[400],
-                textStyle: GoogleFonts.pacifico(fontSize: 20),
-                minimumSize: const Size(200, 50),
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          const CustomAppBar(),
+          const SizedBox(height: 50),
+          Wrap(
+            spacing: 30,
+            runSpacing: 30,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Get.rootDelegate.offNamed(MyRoute.weddingPage);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey[400],
+                  minimumSize: const Size(200, 50),
+                ),
+                child: Text(
+                  "Düğün",
+                  style: GoogleFonts.quicksand(fontSize: 20),
+                ),
               ),
-              child: const Text("Düğün"),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey[400],
-                textStyle: GoogleFonts.pacifico(fontSize: 20),
-                minimumSize: const Size(200, 50),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey[400],
+                  minimumSize: const Size(200, 50),
+                ),
+                child: Text(
+                  "Nikâh",
+                  style: GoogleFonts.quicksand(fontSize: 20),
+                ),
               ),
-              child: const Text("Nikâh"),
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                await _takePhoto();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    backgroundColor: Colors.blueGrey,
-                    content: Text(
-                      "Teşekkür ederiz.",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+              ElevatedButton(
+                onPressed: () async {
+                  await _takePhoto();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      backgroundColor: Colors.blueGrey,
+                      content: Text(
+                        "Teşekkür ederiz.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
+                      duration: Duration(seconds: 3),
                     ),
-                    duration: Duration(seconds: 3),
-                  ),
-                );
-                Get.rootDelegate.offNamed(MyRoute.main);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey[400],
-                textStyle: GoogleFonts.pacifico(fontSize: 20),
-                minimumSize: const Size(200, 50),
+                  );
+                  Get.rootDelegate.offNamed(MyRoute.main);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey[400],
+                  minimumSize: const Size(200, 50),
+                ),
+                child: Text(
+                  "Fotoğraf Gönder",
+                  style: GoogleFonts.quicksand(fontSize: 20),
+                ),
               ),
-              child: const Text("Fotoğraf Gönder"),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey[400],
-                textStyle: GoogleFonts.pacifico(fontSize: 20),
-                minimumSize: const Size(200, 50),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey[400],
+                  minimumSize: const Size(200, 50),
+                ),
+                child: Text("İletişim",
+                    style: GoogleFonts.quicksand(fontSize: 20)),
               ),
-              child: const Text("İletişim"),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+          const SizedBox(height: 50),
+          const DatesWidget(),
+        ],
+      ),
     ));
   }
 }

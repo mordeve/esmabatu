@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialBinding: MainBinding(),
       fallbackLocale: const Locale("tr"),
+      theme: ThemeData(fontFamily: 'Pacifico'),
       // theme: Colors.blueGrey
       themeMode: ThemeMode.dark,
     );

@@ -23,6 +23,7 @@ dependencies:
   firebase_core: ^2.15.1
   firebase_database: ^10.2.5
   uuid: ^3.0.7
+  flutter_circular_text: ^0.3.1
 
 
 
@@ -36,6 +37,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  fonts:
+    - family: Pacifico
+      fonts:
+        - asset: assets/fonts/Pacifico/Pacifico-Regular.ttf
 
   assets:
     - assets/

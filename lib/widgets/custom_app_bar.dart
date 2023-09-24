@@ -14,14 +14,14 @@ class CustomAppBar extends StatelessWidget {
             color: Colors.grey[300],
             borderRadius: BorderRadius.vertical(
               bottom:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+                  Radius.elliptical(MediaQuery.of(context).size.width, 50.0),
             ),
             boxShadow: const [
               BoxShadow(
                 color: Color(0xFFBEBEBE),
                 offset: Offset(10, 10),
                 blurRadius: 30,
-                spreadRadius: 1,
+                spreadRadius: 2,
               ),
               BoxShadow(
                 color: Color.fromARGB(255, 191, 189, 192),
@@ -45,7 +45,7 @@ class CustomAppBar extends StatelessWidget {
                   const SizedBox(width: 6.0),
                   Text(
                     appName,
-                    style: GoogleFonts.pacifico(fontSize: 24),
+                    style: GoogleFonts.quicksand(fontSize: 24),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(width: 6.0),
@@ -62,7 +62,7 @@ class CustomAppBar extends StatelessWidget {
               child: Obx(
                 () => Text(
                   Get.find<MainController>().remTime.value,
-                  style: GoogleFonts.pacifico(fontSize: 20.0),
+                  style: GoogleFonts.quicksand(fontSize: 20.0),
                 ),
               ),
             ),
