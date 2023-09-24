@@ -81,7 +81,9 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.rootDelegate.offNamed(MyRoute.nikahPage);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueGrey[400],
                   minimumSize: const Size(200, 50),

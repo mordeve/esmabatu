@@ -1,42 +1,3 @@
-// import 'package:esmabatu/utils/constants.dart';
-// import 'package:flutter/material.dart';
-// import 'package:url_launcher/url_launcher.dart';
-
-// class DugunPage extends StatelessWidget {
-//   const DugunPage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(
-//         child: Column(
-//           children: [
-//             const Text("Tarih: 11.11.2023"),
-//             const Text("Saat: 19:00 - 23:00"),
-//             const Text(
-//                 "Adres: Fatih mahallesi aydos caddesi yörük caddesi, Serinpınar Sk. çamlık sok no:1, 34885 Sancaktepe/İstanbul"),
-//             // https://www.google.com/maps/dir/40.9611111,29.2669434/bervaze/@40.9625274,29.2015412,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x14cadb704477ec21:0xd527375e81aba30c!2m2!1d29.2181304!2d40.9551708?entry=ttu
-//             ElevatedButton(
-//               onPressed: () {
-//                 _launchMapsUrl(40.9551708, 29.2181304);
-//               },
-//               child: const Text("Yol Tarifi"),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-
-//   void _launchMapsUrl(double lat, double lon) async {
-//     if (await canLaunchUrl(Uri.parse(weddingLocation))) {
-//       await launchUrl(Uri.parse(weddingLocation));
-//     } else {
-//       throw 'Could not launch $weddingLocation';
-//     }
-//   }
-// }
-
 import 'package:esmabatu/route.dart';
 import 'package:esmabatu/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +15,7 @@ class DugunPage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: const AssetImage(
-              "bg_dugun.png",
+              "assets/bg_dugun.png",
             ),
             fit: BoxFit.cover,
             filterQuality: FilterQuality.medium,
