@@ -1,7 +1,7 @@
 import 'package:esmabatu/controllers/main_controller.dart';
 import 'package:esmabatu/pages/dugun_page.dart';
 import 'package:esmabatu/pages/home_page.dart';
-import 'package:esmabatu/pages/n%C4%B1kah_page.dart';
+import 'package:esmabatu/pages/nikah_page.dart';
 import 'package:get/get.dart';
 
 abstract class MyRoute {

@@ -8,7 +8,7 @@ class DatesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // Nikâh: 02.11.2023
-      // Kına: 08.11.2023
+      // Kına: 09.11.2023
       // Düğün: 11.11.2023
       padding: const EdgeInsets.symmetric(
         vertical: 20.0,
@@ -60,7 +60,7 @@ class DatesWidget extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: " 08.11.2023",
+                  text: " 09.11.2023",
                   style: GoogleFonts.quicksand(
                     fontSize: 30,
                     color: Colors.blueGrey[600],

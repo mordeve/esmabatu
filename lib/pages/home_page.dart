@@ -44,7 +44,7 @@ class HomePageState extends State<HomePage> {
   Future<void> _takePhoto() async {
     try {
       final pickedFile = await ImagePicker()
-          .pickImage(source: ImageSource.camera, imageQuality: 25);
+          .pickImage(source: ImageSource.camera, imageQuality: 5);
 
       if (pickedFile != null) {
         final Uint8List imgBytes = await pickedFile.readAsBytes();
