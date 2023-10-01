@@ -5,3 +5,8 @@ const weddingLocation =
 
 const nikahLocation =
     "https://www.google.com/maps/place/Sultanbeyli+Belediyesi+Evlendirme+Dairesi/@40.9770108,29.2595215,16z/data=!4m10!1m2!2m1!1sSultanbeyli+Belediyesi+Evlendirme+Dairesi!3m6!1s0x14cad0517cfde62f:0x136bfd82c397c6f6!8m2!3d40.983174!4d29.2701787!15sCilTdWx0YW5iZXlsaSBCZWxlZGl5ZXNpIEV2bGVuZGlybWUgRGFpcmVzaZIBDXdlZGRpbmdfdmVudWXgAQA!16s%2Fg%2F1tz7qvg1?entry=ttu";
+
+const kinaLocation =
+    "https://www.google.com/maps/place/Salon+Beyaz+Saray/@41.0314846,29.2294525,15z/data=!4m6!3m5!1s0x14cace022bc70eeb:0x1b427c1ce859b8ed!8m2!3d41.0314846!4d29.2294525!16s%2Fg%2F11dymqlsrd?entry=ttu";
+
+const kinaAdress = "Taşdelen, Turgut Özal Cd. No:145, 34788 Çekmeköy/İstanbul";
