@@ -43,7 +43,7 @@ class HomePageState extends State<HomePage> {
   Future<void> _takePhoto() async {
     try {
       final pickedFile = await ImagePicker()
-          .pickImage(source: ImageSource.camera, imageQuality: 5);
+          .pickImage(source: ImageSource.camera, imageQuality: 25);
 
       if (pickedFile != null) {
         final XFile imgBytes = pickedFile;
@@ -203,12 +203,17 @@ class HomePageState extends State<HomePage> {
   void customBottomModalSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       builder: (BuildContext context) {
-        return Card(
-          margin: const EdgeInsets.all(4),
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: SizedBox(
-            height: 250,
+            height: MediaQuery.of(context).size.height * 0.4,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 const SizedBox(height: 20),
                 const Text(
