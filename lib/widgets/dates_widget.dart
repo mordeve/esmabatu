@@ -10,6 +10,7 @@ class DatesWidget extends StatelessWidget {
       // Nikâh: 02.11.2023
       // Kına: 09.11.2023
       // Düğün: 11.11.2023
+
       padding: const EdgeInsets.symmetric(
         vertical: 20.0,
         horizontal: 40.0,

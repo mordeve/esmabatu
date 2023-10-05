@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 const appName = "Esma Batuhan Wedding";
 const appTitle = "Esma 🤍 Batuhan";
 const weddingLocation =
@@ -10,3 +12,6 @@ const kinaLocation =
     "https://www.google.com/maps/place/Salon+Beyaz+Saray/@41.0314846,29.2294525,15z/data=!4m6!3m5!1s0x14cace022bc70eeb:0x1b427c1ce859b8ed!8m2!3d41.0314846!4d29.2294525!16s%2Fg%2F11dymqlsrd?entry=ttu";
 
 const kinaAdress = "Taşdelen, Turgut Özal Cd. No:145, 34788 Çekmeköy/İstanbul";
+
+const kButtonTextSize = 16.0;
+const kButtonSize = Size(80, 40);

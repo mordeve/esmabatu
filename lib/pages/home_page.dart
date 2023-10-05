@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:esmabatu/controllers/main_controller.dart';
 import 'package:esmabatu/route.dart';
+import 'package:esmabatu/utils/constants.dart';
 import 'package:esmabatu/widgets/custom_app_bar.dart';
+import 'package:esmabatu/widgets/custom_button.dart';
 import 'package:esmabatu/widgets/custom_snackbar.dart';
 import 'package:esmabatu/widgets/dates_widget.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +56,7 @@ class HomePageState extends State<HomePage> {
           senderNameController.text,
         );
 
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(CustomSnackBar(
           text: "Fotoğrafınız gönderildi! Teşekkür ederiz.",
           duration: const Duration(seconds: 2),
@@ -64,7 +67,7 @@ class HomePageState extends State<HomePage> {
         text: "Tekrar deneyin!",
         duration: const Duration(seconds: 2),
       ));
-      print("Error: $e");
+      debugPrint("Error: $e");
     }
   }
 
@@ -133,71 +136,67 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Column(
-        children: [
-          const CustomAppBar(),
-          const SizedBox(height: 50),
-          Wrap(
-            spacing: 30,
-            runSpacing: 30,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Get.rootDelegate.offNamed(MyRoute.weddingPage);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey[400],
-                  minimumSize: const Size(200, 50),
+        backgroundColor: Colors.white,
+        body: Stack(
+          alignment: Alignment.topCenter,
+          children: [
+            const CustomAppBar(),
+            Container(
+              margin: const EdgeInsets.only(top: 80), // TODO: make constant
+              width: 550,
+              height: MediaQuery.of(context).size.height,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/main_bg.png"),
+                  fit: BoxFit.cover,
                 ),
-                child: Text(
-                  "Düğün",
-                  style: GoogleFonts.quicksand(fontSize: 20),
+                // make elliptical shape from top
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 8.0),
+                    Wrap(
+                      alignment: WrapAlignment.center,
+                      spacing: 20,
+                      runSpacing: 12.0,
+                      children: [
+                        CustomButton(
+                          btnText: 'Düğün',
+                          onPress: () {
+                            Get.toNamed(MyRoute.weddingPage);
+                          },
+                        ),
+                        CustomButton(
+                          btnText: 'Nikah',
+                          onPress: () {
+                            Get.toNamed(MyRoute.nikahPage);
+                          },
+                        ),
+                        CustomButton(
+                          btnText: 'Kına',
+                          onPress: () {
+                            Get.toNamed(MyRoute.kinaPage);
+                          },
+                        ),
+                        CustomButton(
+                          btnText: "Fotoğraf / Not",
+                          onPress: () async {
+                            customBottomModalSheet(context);
+                          },
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.4,
+                    ),
+                    const DatesWidget(),
+                  ],
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Get.rootDelegate.offNamed(MyRoute.nikahPage);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey[400],
-                  minimumSize: const Size(200, 50),
-                ),
-                child: Text(
-                  "Nikâh",
-                  style: GoogleFonts.quicksand(fontSize: 20),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Get.rootDelegate.offNamed(MyRoute.kinaPage);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey[400],
-                  minimumSize: const Size(200, 50),
-                ),
-                child: Text("Kına", style: GoogleFonts.quicksand(fontSize: 20)),
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  customBottomModalSheet(context);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey[400],
-                  minimumSize: const Size(200, 50),
-                ),
-                child: Text(
-                  "Fotoğraf / Not",
-                  style: GoogleFonts.quicksand(fontSize: 20),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 50),
-          const DatesWidget(),
-        ],
-      ),
-    ));
+            ),
+          ],
+        ));
   }
 
   void customBottomModalSheet(BuildContext context) {

@@ -16,6 +16,7 @@ class CustomSnackBar extends SnackBar {
             style: const TextStyle(
               color: AppColors.kSnackbarTextColor,
             ),
+            textAlign: TextAlign.center,
           ),
         );
 }

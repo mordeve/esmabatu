@@ -10,30 +10,27 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-            color: Colors.grey[300],
-            borderRadius: BorderRadius.vertical(
-              bottom:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 50.0),
-            ),
-            boxShadow: const [
-              BoxShadow(
-                color: Color(0xFFBEBEBE),
-                offset: Offset(10, 10),
-                blurRadius: 30,
-                spreadRadius: 2,
-              ),
-              BoxShadow(
-                color: Color.fromARGB(255, 191, 189, 192),
-                offset: Offset(-10, -10),
-                blurRadius: 30,
-                spreadRadius: 1,
-              ),
-            ]),
+        height: 80,
+        alignment: Alignment.topCenter,
+        decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+          BoxShadow(
+            color: Color(0xFFBEBEBE),
+            offset: Offset(10, 10),
+            blurRadius: 30,
+            spreadRadius: 2,
+          ),
+          BoxShadow(
+            color: Color.fromARGB(255, 191, 189, 192),
+            offset: Offset(-10, -10),
+            blurRadius: 30,
+            spreadRadius: 1,
+          ),
+        ]),
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.only(
+                  top: 8.0, left: 12.0, right: 12.0, bottom: 12.0),
               alignment: Alignment.center,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -57,12 +54,12 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.only(bottom: 20.0, right: 16, left: 16),
+              padding: const EdgeInsets.only(bottom: 0.0, right: 16, left: 16),
               alignment: Alignment.center,
               child: Obx(
                 () => Text(
                   Get.find<MainController>().remTime.value,
-                  style: GoogleFonts.quicksand(fontSize: 20.0),
+                  style: GoogleFonts.quicksand(fontSize: 18.0),
                 ),
               ),
             ),
