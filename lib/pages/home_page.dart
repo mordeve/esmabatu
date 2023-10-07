@@ -137,25 +137,22 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            const CustomAppBar(),
-            Container(
-              margin: const EdgeInsets.only(top: 80), // TODO: make constant
-              width: 550,
-              height: MediaQuery.of(context).size.height,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/main_bg.png"),
-                  fit: BoxFit.cover,
-                ),
-                // make elliptical shape from top
-              ),
-              child: SingleChildScrollView(
-                child: Column(
+        body: Container(
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("bg1.png"),
+              fit: BoxFit.cover,
+            ),
+            // make elliptical shape from top
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const CustomAppBar(),
+                Column(
                   children: [
-                    const SizedBox(height: 8.0),
+                    const SizedBox(height: 20.0),
                     Wrap(
                       alignment: WrapAlignment.center,
                       spacing: 20,
@@ -163,27 +160,25 @@ class HomePageState extends State<HomePage> {
                       children: [
                         CustomButton(
                           btnText: 'Düğün',
-                          onPress: () {
-                            Get.toNamed(MyRoute.weddingPage);
-                          },
+                          onPressed: () => Get.rootDelegate.toNamed(
+                            MyRoute.weddingPage,
+                          ),
                         ),
                         CustomButton(
                           btnText: 'Nikah',
-                          onPress: () {
-                            Get.toNamed(MyRoute.nikahPage);
-                          },
+                          onPressed: () => Get.rootDelegate.toNamed(
+                            MyRoute.nikahPage,
+                          ),
                         ),
                         CustomButton(
                           btnText: 'Kına',
-                          onPress: () {
-                            Get.toNamed(MyRoute.kinaPage);
-                          },
+                          onPressed: () => Get.rootDelegate.toNamed(
+                            MyRoute.kinaPage,
+                          ),
                         ),
                         CustomButton(
-                          btnText: "Fotoğraf / Not",
-                          onPress: () async {
-                            customBottomModalSheet(context);
-                          },
+                          btnText: "Fotoğraf/Not Gönder",
+                          onPressed: () => customBottomModalSheet(context),
                         )
                       ],
                     ),
@@ -193,9 +188,9 @@ class HomePageState extends State<HomePage> {
                     const DatesWidget(),
                   ],
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ));
   }
 
@@ -227,6 +222,12 @@ class HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.symmetric(horizontal: 60),
                   child: TextField(
                     controller: senderNameController,
+                    textCapitalization: TextCapitalization.words,
+                    keyboardType: TextInputType.name,
+                    style: GoogleFonts.quicksand(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "İsminiz",

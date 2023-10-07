@@ -10,22 +10,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 80,
         alignment: Alignment.topCenter,
-        decoration: const BoxDecoration(color: Colors.white, boxShadow: [
-          BoxShadow(
-            color: Color(0xFFBEBEBE),
-            offset: Offset(10, 10),
-            blurRadius: 30,
-            spreadRadius: 2,
-          ),
-          BoxShadow(
-            color: Color.fromARGB(255, 191, 189, 192),
-            offset: Offset(-10, -10),
-            blurRadius: 30,
-            spreadRadius: 1,
-          ),
-        ]),
         child: Column(
           children: [
             Container(

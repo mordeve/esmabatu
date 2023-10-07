@@ -15,7 +15,7 @@ class KinaPage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: const AssetImage(
-              "assets/bg_kina.jpg",
+              "assets/bg_dugun.png",
             ),
             fit: BoxFit.cover,
             filterQuality: FilterQuality.medium,
@@ -36,7 +36,7 @@ class KinaPage extends StatelessWidget {
                   Get.rootDelegate.offNamed(MyRoute.main);
                 },
                 icon: const Icon(Icons.arrow_back_ios),
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
             Column(

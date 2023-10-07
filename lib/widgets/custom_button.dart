@@ -7,11 +7,11 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     required this.btnText,
-    required this.onPress,
+    required this.onPressed,
   });
 
   final String btnText;
-  final VoidCallback onPress;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -19,25 +19,24 @@ class CustomButton extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
-            blurRadius: 10,
-            offset: const Offset(0, 3), // changes position of shadow
+            blurRadius: 40,
           ),
         ],
       ),
       child: ElevatedButton(
-        onPressed: () {
-          onPress();
-        },
+        onPressed: () => onPressed(),
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.black54,
+          backgroundColor: Colors.white70,
           minimumSize: kButtonSize,
         ),
         child: Text(
           btnText,
           style: GoogleFonts.quicksand(
             fontSize: kButtonTextSize,
+            color: Colors.blueGrey[800],
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),
