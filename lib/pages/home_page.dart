@@ -141,7 +141,7 @@ class HomePageState extends State<HomePage> {
           height: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("bg1.png"),
+              image: AssetImage("assets/bg1.png"),
               fit: BoxFit.cover,
             ),
             // make elliptical shape from top
