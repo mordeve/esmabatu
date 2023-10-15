@@ -96,7 +96,7 @@ class DugunPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 4),
                             SelectableText(
-                              "Fatih Mahallesi Aydos Caddesi Yörük Caddesi, Serinpınar Sk. Çamlık Sok No:1, 34885, Sancaktepe/İstanbul",
+                              dugunAdress,
                               style: GoogleFonts.quicksand(
                                 fontSize: 20,
                                 color: Colors.white,

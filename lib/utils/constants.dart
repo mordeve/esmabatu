@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const appName = "Esma Batuhan Wedding";
+const appName = "Esma & Batuhan";
 const appTitle = "Esma 🤍 Batuhan";
 const weddingLocation =
     "https://www.google.com/maps/dir//Bervaze+Restoran+Cafe+Davet+Düğün+Nişan+Balo+Salonları+İş+Toplantıları,+Fatih+mahallesi+aydos+caddesi+yörük+caddesi,+Serinpınar+Sokak+çamlık+sok,+Sancaktepe%2Fİstanbul/@40.9552283,29.1769312,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x14cadb704477ec21:0xd527375e81aba30c!2m2!1d29.2181304!2d40.9551708?entry=ttu";
@@ -12,6 +12,11 @@ const kinaLocation =
     "https://www.google.com/maps/place/Salon+Beyaz+Saray/@41.0314846,29.2294525,15z/data=!4m6!3m5!1s0x14cace022bc70eeb:0x1b427c1ce859b8ed!8m2!3d41.0314846!4d29.2294525!16s%2Fg%2F11dymqlsrd?entry=ttu";
 
 const kinaAdress = "Taşdelen, Turgut Özal Cd. No:145, 34788 Çekmeköy/İstanbul";
+
+const dugunAdress =
+    "Fatih Mah. Esentepe Sok. No:1 Ortadağ/Sancaktepe | İstanbul";
+
+const invNote = "Davetlisiniz!";
 
 const kButtonTextSize = 16.0;
 const kButtonSize = Size(80, 40);

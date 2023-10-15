@@ -13,6 +13,7 @@ class CustomAppBar extends StatelessWidget {
         alignment: Alignment.topCenter,
         child: Column(
           children: [
+            const SizedBox(height: 64.0),
             Container(
               padding: const EdgeInsets.only(
                   top: 8.0, left: 12.0, right: 12.0, bottom: 12.0),
@@ -20,21 +21,15 @@ class CustomAppBar extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.favorite_border_sharp,
-                    color: Colors.purple.shade400,
-                  ),
-                  const SizedBox(width: 6.0),
+                  const SizedBox(width: 8.0),
                   Text(
                     appName,
-                    style: GoogleFonts.quicksand(fontSize: 24),
+                    style: GoogleFonts.alexBrush(
+                      fontSize: 50,
+                    ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(width: 6.0),
-                  Icon(
-                    Icons.favorite_border_sharp,
-                    color: Colors.purple.shade400,
-                  ),
+                  const SizedBox(width: 8.0),
                 ],
               ),
             ),

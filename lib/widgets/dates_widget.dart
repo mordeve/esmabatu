@@ -6,14 +6,16 @@ class DatesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double datesFontSize = 14.0;
+
     return Container(
-      // Nikâh: 02.11.2023
-      // Kına: 09.11.2023
-      // Düğün: 11.11.2023
+      // Nikâh: 02.11.2023 14.00 - 15.00
+      // Kına: 09.11.2023  19.00 - 23.00
+      // Düğün: 11.11.2023 19.00 - 23.00
 
       padding: const EdgeInsets.symmetric(
         vertical: 20.0,
-        horizontal: 40.0,
+        horizontal: 30.0,
       ),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.8),
@@ -23,7 +25,7 @@ class DatesWidget extends StatelessWidget {
             color: Colors.blueGrey.shade200,
             blurRadius: 20,
             spreadRadius: 2,
-            offset: Offset(0, 5),
+            offset: const Offset(0, 5),
           ),
         ],
       ),
@@ -36,14 +38,14 @@ class DatesWidget extends StatelessWidget {
                 TextSpan(
                   text: "Nikâh: ",
                   style: GoogleFonts.quicksand(
-                    fontSize: 30,
+                    fontSize: datesFontSize,
                     color: Colors.blueGrey[600],
                   ),
                 ),
                 TextSpan(
                   text: " 02.11.2023",
                   style: GoogleFonts.quicksand(
-                    fontSize: 30,
+                    fontSize: datesFontSize,
                     color: Colors.blueGrey[600],
                   ),
                 ),
@@ -56,14 +58,14 @@ class DatesWidget extends StatelessWidget {
                 TextSpan(
                   text: "Kına:   ",
                   style: GoogleFonts.quicksand(
-                    fontSize: 30,
+                    fontSize: datesFontSize,
                     color: Colors.blueGrey[600],
                   ),
                 ),
                 TextSpan(
                   text: " 09.11.2023",
                   style: GoogleFonts.quicksand(
-                    fontSize: 30,
+                    fontSize: datesFontSize,
                     color: Colors.blueGrey[600],
                   ),
                 ),
@@ -76,14 +78,14 @@ class DatesWidget extends StatelessWidget {
                 TextSpan(
                   text: "Düğün: ",
                   style: GoogleFonts.quicksand(
-                    fontSize: 30,
+                    fontSize: datesFontSize,
                     color: Colors.blueGrey[600],
                   ),
                 ),
                 TextSpan(
                   text: " 11.11.2023",
                   style: GoogleFonts.quicksand(
-                    fontSize: 30,
+                    fontSize: datesFontSize,
                     color: Colors.blueGrey[600],
                   ),
                 ),

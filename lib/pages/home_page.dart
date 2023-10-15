@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:esmabatu/controllers/main_controller.dart';
 import 'package:esmabatu/route.dart';
 import 'package:esmabatu/utils/constants.dart';
+import 'package:esmabatu/utils/constants.dart';
 import 'package:esmabatu/widgets/custom_app_bar.dart';
 import 'package:esmabatu/widgets/custom_button.dart';
 import 'package:esmabatu/widgets/custom_snackbar.dart';
@@ -141,8 +142,8 @@ class HomePageState extends State<HomePage> {
           height: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/bg1.png"),
-              fit: BoxFit.cover,
+              image: AssetImage("assets/main_bg.png"),
+              fit: BoxFit.fill,
             ),
             // make elliptical shape from top
           ),
@@ -152,7 +153,7 @@ class HomePageState extends State<HomePage> {
                 const CustomAppBar(),
                 Column(
                   children: [
-                    const SizedBox(height: 20.0),
+                    const SizedBox(height: 60.0),
                     Wrap(
                       alignment: WrapAlignment.center,
                       spacing: 20,
@@ -182,8 +183,20 @@ class HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
+                    Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.only(
+                          top: 80, bottom: 20, left: 20, right: 20),
+                      child: Text(
+                        invNote,
+                        style: GoogleFonts.alexBrush(
+                          fontSize: 26.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.4,
+                      height: 50,
                     ),
                     const DatesWidget(),
                   ],
