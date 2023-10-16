@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:esmabatu/controllers/main_controller.dart';
 import 'package:esmabatu/route.dart';
 import 'package:esmabatu/utils/constants.dart';
-import 'package:esmabatu/utils/constants.dart';
 import 'package:esmabatu/widgets/custom_app_bar.dart';
 import 'package:esmabatu/widgets/custom_button.dart';
 import 'package:esmabatu/widgets/custom_snackbar.dart';
 import 'package:esmabatu/widgets/dates_widget.dart';
+import 'package:esmabatu/widgets/timer_counter_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -151,55 +151,59 @@ class HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 const CustomAppBar(),
-                Column(
-                  children: [
-                    const SizedBox(height: 60.0),
-                    Wrap(
-                      alignment: WrapAlignment.center,
-                      spacing: 20,
-                      runSpacing: 12.0,
-                      children: [
-                        CustomButton(
-                          btnText: 'Düğün',
-                          onPressed: () => Get.rootDelegate.toNamed(
-                            MyRoute.weddingPage,
+                const CountdownWidget(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 60.0),
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        spacing: 20,
+                        runSpacing: 20.0,
+                        children: [
+                          CustomButton(
+                            btnText: 'Düğün',
+                            onPressed: () => Get.rootDelegate.toNamed(
+                              MyRoute.weddingPage,
+                            ),
                           ),
-                        ),
-                        CustomButton(
-                          btnText: 'Nikah',
-                          onPressed: () => Get.rootDelegate.toNamed(
-                            MyRoute.nikahPage,
+                          // CustomButton(
+                          //   btnText: 'Nikah',
+                          //   onPressed: () => Get.rootDelegate.toNamed(
+                          //     MyRoute.nikahPage,
+                          //   ),
+                          // ),
+                          CustomButton(
+                            btnText: 'Kına',
+                            onPressed: () => Get.rootDelegate.toNamed(
+                              MyRoute.kinaPage,
+                            ),
                           ),
-                        ),
-                        CustomButton(
-                          btnText: 'Kına',
-                          onPressed: () => Get.rootDelegate.toNamed(
-                            MyRoute.kinaPage,
+                          CustomButton(
+                            btnText: "Fotoğraf/Not Gönder",
+                            onPressed: () => customBottomModalSheet(context),
+                          )
+                        ],
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.only(
+                            top: 80, bottom: 20, left: 20, right: 20),
+                        child: Text(
+                          invNote,
+                          style: GoogleFonts.alexBrush(
+                            fontSize: 28.0,
+                            fontWeight: FontWeight.w500,
                           ),
-                        ),
-                        CustomButton(
-                          btnText: "Fotoğraf/Not Gönder",
-                          onPressed: () => customBottomModalSheet(context),
-                        )
-                      ],
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.only(
-                          top: 80, bottom: 20, left: 20, right: 20),
-                      child: Text(
-                        invNote,
-                        style: GoogleFonts.alexBrush(
-                          fontSize: 26.0,
-                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    const DatesWidget(),
-                  ],
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      const DatesWidget(),
+                    ],
+                  ),
                 ),
               ],
             ),

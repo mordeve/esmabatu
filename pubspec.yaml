@@ -21,7 +21,6 @@ dependencies:
   image_picker: ^1.0.4
   camera: ^0.10.5+4
   firebase_core: ^2.15.1
-  firebase_database: ^10.2.5
   uuid: ^3.0.7
   flutter_circular_text: ^0.3.1
   firebase_storage: ^11.2.7

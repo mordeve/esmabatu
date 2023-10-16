@@ -19,4 +19,4 @@ const dugunAdress =
 const invNote = "Davetlisiniz!";
 
 const kButtonTextSize = 16.0;
-const kButtonSize = Size(80, 40);
+const kButtonSize = Size(95, 40);

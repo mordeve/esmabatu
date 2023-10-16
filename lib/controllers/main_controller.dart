@@ -14,7 +14,11 @@ enum UploadType {
 }
 
 class MainController extends GetxController {
-  var remTime = "".obs;
+  var remTimeDays = 0.obs;
+  var remTimeHours = 0.obs;
+  var remTimeMinutes = 0.obs;
+  var remTimeSeconds = 0.obs;
+
   var uuid = const Uuid();
   Base64Codec base64 = const Base64Codec();
   late UploadTask uploadTask;
@@ -23,8 +27,12 @@ class MainController extends GetxController {
     final now = DateTime.now().millisecondsSinceEpoch;
     final future = DateTime(2023, 11, 11, 19, 0, 0).millisecondsSinceEpoch;
     Duration remaining = Duration(milliseconds: future - now);
-    remTime.value =
-        "${remaining.inDays} gün ${remaining.inHours.remainder(24)} saat ${remaining.inMinutes.remainder(60)} dakika ${remaining.inSeconds.remainder(60)} saniye";
+    // remTime.value =
+    //     "${remaining.inDays} gün ${remaining.inHours.remainder(24)} saat ${remaining.inMinutes.remainder(60)} dakika ${remaining.inSeconds.remainder(60)} saniye";
+    remTimeDays.value = remaining.inDays;
+    remTimeHours.value = remaining.inHours.remainder(24);
+    remTimeMinutes.value = remaining.inMinutes.remainder(60);
+    remTimeSeconds.value = remaining.inSeconds.remainder(60);
   }
 
   Future<UploadTask?> uploadImage(
