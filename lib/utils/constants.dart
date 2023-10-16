@@ -1,3 +1,4 @@
+import 'package:esmabatu/widgets/family_card.dart';
 import 'package:flutter/material.dart';
 
 const appName = "Esma & Batuhan";
@@ -19,4 +20,15 @@ const dugunAdress =
 const invNote = "Davetlisiniz!";
 
 const kButtonTextSize = 16.0;
-const kButtonSize = Size(95, 40);
+const kButtonSize = Size(92, 40);
+
+const gelinMom = "Gülhan";
+const gelinDad = "Oktay";
+const gelinLastname = "GENÇ";
+
+const damatMom = "Nurper";
+const damatDad = "Ercan";
+const damatLastname = "KARAOĞLU";
+
+const dugunText = "11.11.2023 | 19.00 - 23.00";
+const kinaText = "09.11.2023 | 19.00 - 23.00";

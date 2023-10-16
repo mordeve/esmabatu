@@ -1,7 +1,5 @@
-import 'package:esmabatu/controllers/main_controller.dart';
 import 'package:esmabatu/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -17,7 +15,7 @@ class CustomAppBar extends StatelessWidget {
         child: Container(
           alignment: Alignment.topCenter,
           padding: const EdgeInsets.only(
-            top: 92.0,
+            top: 48.0,
             left: 32.0,
             right: 32.0,
             bottom: 12.0,

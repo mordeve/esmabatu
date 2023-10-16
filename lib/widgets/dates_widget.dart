@@ -1,3 +1,4 @@
+import 'package:esmabatu/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,93 +7,78 @@ class DatesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double datesFontSize = 14.0;
+    const double datesFontSize = 24.0;
+    var screenSize = MediaQuery.of(context).size.width;
 
-    return Container(
-      // Nikâh: 02.11.2023 14.00 - 15.00
-      // Kına: 09.11.2023  19.00 - 23.00
-      // Düğün: 11.11.2023 19.00 - 23.00
-
-      padding: const EdgeInsets.symmetric(
-        vertical: 20.0,
-        horizontal: 30.0,
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.8),
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.blueGrey.shade200,
-            blurRadius: 20,
-            spreadRadius: 2,
-            offset: const Offset(0, 5),
+    return FittedBox(
+      fit: BoxFit.fitWidth,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 64.0),
+        child: Container(
+          width: screenSize < 800 ? 600 : screenSize * 0.6,
+          padding: const EdgeInsets.symmetric(
+            vertical: 32.0,
+            horizontal: 20.0,
           ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "Nikâh: ",
-                  style: GoogleFonts.quicksand(
-                    fontSize: datesFontSize,
-                    color: Colors.blueGrey[600],
-                  ),
-                ),
-                TextSpan(
-                  text: " 02.11.2023",
-                  style: GoogleFonts.quicksand(
-                    fontSize: datesFontSize,
-                    color: Colors.blueGrey[600],
-                  ),
-                ),
-              ],
-            ),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.8),
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.blueGrey.shade200,
+                blurRadius: 30.0,
+                spreadRadius: 2.0,
+              ),
+            ],
           ),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "Kına:   ",
-                  style: GoogleFonts.quicksand(
-                    fontSize: datesFontSize,
-                    color: Colors.blueGrey[600],
-                  ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Kına:   ",
+                      style: GoogleFonts.quicksand(
+                        fontSize: datesFontSize,
+                        color: Colors.blueGrey[600],
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: kinaText,
+                      style: GoogleFonts.quicksand(
+                        fontSize: datesFontSize,
+                        color: Colors.blueGrey[600],
+                      ),
+                    ),
+                  ],
                 ),
-                TextSpan(
-                  text: " 09.11.2023",
-                  style: GoogleFonts.quicksand(
-                    fontSize: datesFontSize,
-                    color: Colors.blueGrey[600],
-                  ),
+              ),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Düğün: ",
+                      style: GoogleFonts.quicksand(
+                        fontSize: datesFontSize,
+                        color: Colors.blueGrey[600],
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: dugunText,
+                      style: GoogleFonts.quicksand(
+                        fontSize: datesFontSize,
+                        color: Colors.blueGrey[600],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "Düğün: ",
-                  style: GoogleFonts.quicksand(
-                    fontSize: datesFontSize,
-                    color: Colors.blueGrey[600],
-                  ),
-                ),
-                TextSpan(
-                  text: " 11.11.2023",
-                  style: GoogleFonts.quicksand(
-                    fontSize: datesFontSize,
-                    color: Colors.blueGrey[600],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

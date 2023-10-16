@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:esmabatu/controllers/main_controller.dart';
 import 'package:esmabatu/route.dart';
 import 'package:esmabatu/utils/constants.dart';
@@ -7,6 +5,7 @@ import 'package:esmabatu/widgets/custom_app_bar.dart';
 import 'package:esmabatu/widgets/custom_button.dart';
 import 'package:esmabatu/widgets/custom_snackbar.dart';
 import 'package:esmabatu/widgets/dates_widget.dart';
+import 'package:esmabatu/widgets/family_card.dart';
 import 'package:esmabatu/widgets/timer_counter_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,23 +22,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   final homeController = Get.find<MainController>();
 
-  late Timer timer;
   final TextEditingController senderNameController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    timer = Timer.periodic(
-      const Duration(milliseconds: 1000),
-      (Timer t) => homeController.calculateRemainingTime(),
-    );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    timer.cancel();
-  }
 
   final ImagePicker picker = ImagePicker();
 
@@ -72,7 +55,6 @@ class HomePageState extends State<HomePage> {
     }
   }
 
-  // open a beautiful dialog and write a note and bottom "Gönder" "İptal" buttons
   Future<void> _writeNote() async {
     String note = "";
     await showDialog(
@@ -137,78 +119,77 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: Container(
-          height: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/main_bg.png"),
-              fit: BoxFit.fill,
-            ),
-            // make elliptical shape from top
+      backgroundColor: Colors.white,
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/main_bg.png"),
+            fit: BoxFit.fill,
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const CustomAppBar(),
-                const CountdownWidget(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 60.0),
-                      Wrap(
-                        alignment: WrapAlignment.center,
-                        spacing: 20,
-                        runSpacing: 20.0,
-                        children: [
-                          CustomButton(
-                            btnText: 'Düğün',
-                            onPressed: () => Get.rootDelegate.toNamed(
-                              MyRoute.weddingPage,
-                            ),
-                          ),
-                          // CustomButton(
-                          //   btnText: 'Nikah',
-                          //   onPressed: () => Get.rootDelegate.toNamed(
-                          //     MyRoute.nikahPage,
-                          //   ),
-                          // ),
-                          CustomButton(
-                            btnText: 'Kına',
-                            onPressed: () => Get.rootDelegate.toNamed(
-                              MyRoute.kinaPage,
-                            ),
-                          ),
-                          CustomButton(
-                            btnText: "Fotoğraf/Not Gönder",
-                            onPressed: () => customBottomModalSheet(context),
-                          )
-                        ],
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.only(
-                            top: 80, bottom: 20, left: 20, right: 20),
-                        child: Text(
-                          invNote,
-                          style: GoogleFonts.alexBrush(
-                            fontSize: 28.0,
-                            fontWeight: FontWeight.w500,
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const CustomAppBar(),
+              const SizedBox(height: 16.0),
+              const CountdownWidget(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 36.0),
+                    Wrap(
+                      alignment: WrapAlignment.center,
+                      spacing: 20,
+                      runSpacing: 20.0,
+                      children: [
+                        CustomButton(
+                          btnText: 'Düğün',
+                          onPressed: () => Get.rootDelegate.toNamed(
+                            MyRoute.weddingPage,
                           ),
                         ),
+                        CustomButton(
+                          btnText: 'Kına',
+                          onPressed: () => Get.rootDelegate.toNamed(
+                            MyRoute.kinaPage,
+                          ),
+                        ),
+                        CustomButton(
+                          btnText: "Fotoğraf/Not Gönder",
+                          onPressed: () => customBottomModalSheet(context),
+                        )
+                      ],
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.only(
+                          top: 32, bottom: 30, left: 20, right: 20),
+                      child: Text(
+                        invNote,
+                        style: GoogleFonts.alexBrush(
+                          fontSize: 28.0,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      const DatesWidget(),
-                    ],
-                  ),
+                    ),
+                    const FamilyCard(),
+                    const SizedBox(
+                      height: 36,
+                    ),
+                    const DatesWidget(),
+                  ],
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   void customBottomModalSheet(BuildContext context) {

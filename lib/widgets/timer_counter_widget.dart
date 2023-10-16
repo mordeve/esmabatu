@@ -1,14 +1,39 @@
+import 'dart:async';
+
 import 'package:esmabatu/controllers/main_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CountdownWidget extends StatelessWidget {
+class CountdownWidget extends StatefulWidget {
   const CountdownWidget({super.key});
 
   @override
+  State<CountdownWidget> createState() => _CountdownWidgetState();
+}
+
+class _CountdownWidgetState extends State<CountdownWidget> {
+  final controller = Get.find<MainController>();
+
+  late Timer timer;
+
+  @override
+  void initState() {
+    super.initState();
+    timer = Timer.periodic(
+      const Duration(milliseconds: 1000),
+      (Timer t) => controller.calculateRemainingTime(),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    timer.cancel();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final controller = Get.find<MainController>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -37,9 +62,7 @@ class CountdownCard extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.white.withOpacity(0.9),
-              blurRadius: 4.0,
-              spreadRadius: 2,
-              offset: const Offset(0, 2),
+              blurRadius: 8.0,
             ),
           ],
           color: Colors.grey.withOpacity(0.3),
@@ -51,7 +74,7 @@ class CountdownCard extends StatelessWidget {
             children: [
               Obx(
                 () => Text(
-                  value.value.toString().padLeft(2, '0'),
+                  value.value.toString(),
                   style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
