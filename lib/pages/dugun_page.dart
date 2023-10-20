@@ -12,12 +12,16 @@ class DugunPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              "assets/d11.png",
+              "assets/bg_nikah.png",
             ),
             fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.2),
+              BlendMode.multiply,
+            ),
           ),
         ),
         child: Column(

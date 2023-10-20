@@ -12,18 +12,28 @@ class FamilyCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 64.0),
         child: Container(
-            width: 600,
-            height: 150,
+            width: 550,
+            height: 120,
+            // decoration: BoxDecoration(
+            //   borderRadius: BorderRadius.circular(10),
+            //   boxShadow: [
+            //     BoxShadow(
+            //       color: Colors.grey.withOpacity(0.3),
+            //       blurRadius: 20.0,
+            //       spreadRadius: 4.0,
+            //     ),
+            //   ],
+            // ),
             decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.8),
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  blurRadius: 20.0,
-                  spreadRadius: 4.0,
+                  color: Colors.blueGrey.shade200,
+                  blurRadius: 30.0,
+                  spreadRadius: 2.0,
                 ),
               ],
-              color: Colors.white.withOpacity(0.7),
             ),
             child: Padding(
               padding:
@@ -52,7 +62,7 @@ class FamilyCard extends StatelessWidget {
   }
 
   Widget familyContent(String momName, String dadName, String lastname) {
-    const kFamilyFontSize = 24.0;
+    const kFamilyFontSize = 20.0;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,7 +74,7 @@ class FamilyCard extends StatelessWidget {
               style: GoogleFonts.quicksand(
                 fontSize: kFamilyFontSize,
                 fontWeight: FontWeight.w500,
-                color: Colors.black87,
+                color: Colors.blueGrey[600],
               ),
             ),
             const SizedBox(width: 4.0),
@@ -73,7 +83,7 @@ class FamilyCard extends StatelessWidget {
               style: GoogleFonts.quicksand(
                 fontSize: kFamilyFontSize,
                 fontWeight: FontWeight.w500,
-                color: Colors.black87,
+                color: Colors.blueGrey[600],
               ),
             ),
             const SizedBox(width: 4.0),
@@ -82,7 +92,7 @@ class FamilyCard extends StatelessWidget {
               style: GoogleFonts.quicksand(
                 fontSize: kFamilyFontSize,
                 fontWeight: FontWeight.w500,
-                color: Colors.black87,
+                color: Colors.blueGrey[600],
               ),
             ),
           ],
@@ -93,7 +103,7 @@ class FamilyCard extends StatelessWidget {
           style: GoogleFonts.quicksand(
             fontSize: kFamilyFontSize,
             fontWeight: FontWeight.w500,
-            color: Colors.black87,
+            color: Colors.blueGrey[600],
           ),
         ),
       ],
