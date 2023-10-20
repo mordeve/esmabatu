@@ -35,7 +35,7 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "4021772013";
+    const serviceWorkerVersion = "1289060931";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
@@ -96,7 +96,10 @@
         }
       }
     </style>
-    <img src="icons/loading.gif" alt="Loading indicator..." />
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+    <dotlottie-player src="https://lottie.host/19da8c06-f49a-4d43-9bbe-280e491ec18a/zPXoJvmagF.json"
+      background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
   </div>
   <script>
     window.addEventListener('load', function () {
