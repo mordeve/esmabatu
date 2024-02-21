@@ -1,0 +1,16 @@
+
+*.iml
+
+*.DS_Store
+
+*.dart_tool/
+
+*.idea/
+
+*.android/
+
+*.ios/
+*.flutter-plugins-dependencies
+*.flutter-plugins
+*.dart_tool/
+*.dart_tool
