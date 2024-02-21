@@ -1,6 +1,6 @@
 import 'package:esmabatu/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomButton extends StatelessWidget {
@@ -15,29 +15,18 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 40,
-          ),
-        ],
+    return ElevatedButton(
+      onPressed: () => onPressed(),
+      style: ElevatedButton.styleFrom(
+        minimumSize: kButtonSize,
+        backgroundColor: const Color.fromARGB(255, 223, 240, 252),
+        // backgroundColor: Color.fromARGB(255, 229, 216, 180),
       ),
-      child: ElevatedButton(
-        onPressed: () => onPressed(),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white70,
-          minimumSize: kButtonSize,
-        ),
-        child: Text(
-          btnText,
-          style: GoogleFonts.quicksand(
-            fontSize: kButtonTextSize,
-            color: Colors.blueGrey[800],
-            fontWeight: FontWeight.w500,
-          ),
+      child: Text(
+        btnText,
+        style: GoogleFonts.quicksand(
+          fontSize: kButtonTextSize,
+          color: Colors.blueGrey[800],
         ),
       ),
     );

@@ -171,6 +171,7 @@ class HomePageState extends State<HomePage> {
                         style: GoogleFonts.alexBrush(
                           fontSize: 28.0,
                           fontWeight: FontWeight.w500,
+                          color: Colors.blueGrey[800],
                         ),
                       ),
                     ),

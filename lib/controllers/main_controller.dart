@@ -25,10 +25,9 @@ class MainController extends GetxController {
 
   void calculateRemainingTime() {
     final now = DateTime.now().millisecondsSinceEpoch;
-    final future = DateTime(2023, 11, 11, 19, 0, 0).millisecondsSinceEpoch;
+    final future = DateTime(2024, 06, 14, 19, 0, 0).millisecondsSinceEpoch;
     Duration remaining = Duration(milliseconds: future - now);
-    // remTime.value =
-    //     "${remaining.inDays} gün ${remaining.inHours.remainder(24)} saat ${remaining.inMinutes.remainder(60)} dakika ${remaining.inSeconds.remainder(60)} saniye";
+
     remTimeDays.value = remaining.inDays;
     remTimeHours.value = remaining.inHours.remainder(24);
     remTimeMinutes.value = remaining.inMinutes.remainder(60);

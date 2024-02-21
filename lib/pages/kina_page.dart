@@ -15,7 +15,7 @@ class KinaPage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: const AssetImage(
-              "assets/bg_dugun.png",
+              "assets/main_bg.png",
             ),
             fit: BoxFit.cover,
             filterQuality: FilterQuality.medium,
@@ -75,7 +75,7 @@ class KinaPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 30),
                             Text(
-                              "Tarih: 09.11.2023",
+                              "Tarih: $kinaTarih",
                               style: GoogleFonts.quicksand(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,
@@ -83,7 +83,7 @@ class KinaPage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "Saat:  19:00 - 23:00",
+                              "Saat: $kinaSaat",
                               style: GoogleFonts.quicksand(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,

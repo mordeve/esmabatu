@@ -24,6 +24,7 @@ class CustomAppBar extends StatelessWidget {
             appName,
             style: GoogleFonts.parisienne(
               fontSize: 150,
+              fontWeight: FontWeight.w500,
             ),
             textAlign: TextAlign.center,
           ),

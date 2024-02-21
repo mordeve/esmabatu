@@ -14,12 +14,12 @@ class DugunPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-              "assets/bg_nikah.png",
+            image: const AssetImage(
+              "assets/main_bg.png",
             ),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              Colors.black.withOpacity(0.2),
+              Colors.black.withOpacity(0.1),
               BlendMode.multiply,
             ),
           ),
@@ -74,7 +74,7 @@ class DugunPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 30),
                             Text(
-                              "Tarih: 11.11.2023",
+                              "Tarih: $dugunTarih",
                               style: GoogleFonts.quicksand(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,
@@ -82,7 +82,7 @@ class DugunPage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "Saat:  19:00 - 23:00",
+                              "Saat: $dugunSaat",
                               style: GoogleFonts.quicksand(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,

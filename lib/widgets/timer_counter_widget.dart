@@ -56,42 +56,31 @@ class CountdownCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(2.0),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.9),
-              blurRadius: 8.0,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 14.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Obx(
+              () => Text(
+                value.value.toString(),
+                style: TextStyle(
+                  fontSize: 34.0,
+                  fontWeight: FontWeight.w500,
+                  // color: Colors.black87,
+                  color: Colors.blueGrey[900],
+                ),
+              ),
+            ),
+            const SizedBox(height: 6.0),
+            Text(
+              label,
+              style: GoogleFonts.quicksand(
+                fontSize: 16.0,
+                color: Colors.black.withOpacity(0.7),
+              ),
             ),
           ],
-          color: Colors.grey.withOpacity(0.3),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 14.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Obx(
-                () => Text(
-                  value.value.toString(),
-                  style: const TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 6.0),
-              Text(
-                label,
-                style: GoogleFonts.quicksand(
-                  fontSize: 14.0,
-                  color: Colors.black.withOpacity(0.7),
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );
